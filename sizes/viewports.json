@@ -1,0 +1,6 @@
+{
+    "source": "https://gs.statcounter.com/screen-resolution-stats/desktop/worldwide",
+    "desktop": ["1920x1080", "1536x864", "1366x768", "1280x720", "1440x900", "2560x1440"],
+    "tablet": ["768x1024", "810x1080", "820x1180", "800x1280", "1280x800", "601x962"],
+    "mobile": ["360x800", "390x844", "393x873", "412x915", "375x812", "393x852"]
+}
