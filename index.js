@@ -2,6 +2,7 @@ const puppeteer = require("puppeteer");
 const fs = require("fs");
 const path = require("path");
 const viewports = require("./sizes/viewports.json");
+require('dotenv').config();
 
 (async () => {
     // Creating a browser instance
@@ -12,15 +13,15 @@ const viewports = require("./sizes/viewports.json");
   // Creating a new page
   const page = await browser.newPage();
   
-  let urlLink = 'https://equityonline.equitygroupholdings.com/';
+  let urlLink = 'https://facebook.com/';
 
   const url = new URL(urlLink);
 
-  // Open URL in current page
-  await page.goto(url.href, { waitUntil: "networkidle0"});
+  // // Open URL in current page
+  // await page.goto(url.href, { waitUntil: "networkidle0"});
 
   // The path to the screenshot directory
-  const dir = path.join("screenshots", url.hostname);
+  const dir = path.join(process.env.SCREENSHOT_DIR, url.hostname);
 
   // Check if it exists
   if(!fs.existsSync(dir)) {
@@ -48,22 +49,29 @@ const viewports = require("./sizes/viewports.json");
   await page.evaluate(() => {
     document.body.style.overflowY = 'hidden';
   });
-  
-  const viewportsList = [...viewports.desktop, ...viewports.tablet, ...viewports.mobile]
-  for(v of viewportsList) {
-    let dimensions = v.split("x");
-    await page.setViewport({ width: Number(dimensions[0]), height: Number(dimensions[1])});
 
-    const fileName = v + ".png";
+  for(val of viewports) {
+    let userAgent = val.userAgent;
+    for(v of val.sizes) {
+      let dimensions = v.split("x");
+      let isMobile = true;
+      //await page.setViewport({ width: Number(dimensions[0]), height: Number(dimensions[1])});
+      await page.emulate({ userAgent : userAgent, viewport: { width: Number(dimensions[0]), height: Number(dimensions[1]), isMobile: isMobile }});
 
-    const filePath = path.join(dir, fileName)
-  
-    // Capture screenshot
-    await page.screenshot({
-      path: filePath,
-      // fullPage: true
-    });
-  };
+      // Open URL in current page
+      await page.goto(url.href, { waitUntil: "networkidle0"});
+
+      const fileName = v + ".png";
+
+      const filePath = path.join(dir, fileName)
+    
+      // Capture screenshot
+      await page.screenshot({
+        path: filePath,
+        // fullPage: true
+      });
+    }
+  }
   
 
   // // screencast
