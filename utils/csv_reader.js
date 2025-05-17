@@ -11,7 +11,9 @@ const getCSVData = async () => {
         .pipe(parse({ delimiter: ','}))
         .on('data', (rows) => {
             let schema = "https://";
-            data.push(schema + rows[1]);
+            if(rows[0] == 214) {
+                data.push(schema + rows[1]);
+            }
         })
         .on('end', () => {
             resolve(data);
@@ -23,7 +25,7 @@ const getCSVData = async () => {
 }
 
 const writeToCSV = (records) => { 
-    const filePath = path.join(__dirname, "../output/durations.csv");
+    const filePath = path.join(__dirname, "../output/durations_v2.csv");
     const output = stringify(records, { header: true });
     fs.appendFileSync(filePath, output);
 }

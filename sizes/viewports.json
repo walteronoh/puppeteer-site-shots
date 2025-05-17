@@ -2,16 +2,19 @@
     {
         "type" : "desktop",
         "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.3",
-        "sizes" : ["1920x1080xd", "1536x864xd", "1366x768xd", "1280x720xd", "1440x900xd", "2560x1440xd"]
+        "sizes" : ["1920x1080xd", "1536x864xd", "1366x768xd", "1280x720xd", "1440x900xd", "2560x1440xd"],
+        "elements": ["1280x720xd", "2560x1440xd"]
     },
     {
         "type": "tablet",
         "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Mobile Safari/537.3",
-        "sizes" : ["768x1024xt", "810x1080xt", "820x1180xt", "800x1280xt", "1280x800xt", "601x912xt"]
+        "sizes" : ["768x1024xt", "810x1080xt", "820x1180xt", "800x1280xt", "1280x800xt", "601x912xt"],
+        "elements": ["601x912xt", "1280x800xt"]
     },
     {
         "type": "mobile",
         "userAgent" : "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Mobile Safari/537.3",
-        "sizes" : ["360x800xm", "390x844xm", "393x873xm", "412x915xm", "375x812xm", "393x852xm"]
+        "sizes" : ["360x800xm", "390x844xm", "393x873xm", "412x915xm", "375x812xm", "393x852xm"],
+        "elements": ["360x800xm", "412x915xm"]
     }
 ]
