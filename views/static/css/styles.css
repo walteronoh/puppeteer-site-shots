@@ -1,0 +1,56 @@
+.capture-body {
+    width: 25vw;
+    border: 2px dashed grey;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: small;
+}
+
+.capture-header {
+    align-items: center;
+}
+
+.capture-header .logo {
+    text-align: center;
+}
+
+.capture-body main {
+    padding: 20px;
+    text-align: center;
+}
+
+.capture-body main div {
+    padding: 10px;
+    width: 100%;
+}
+
+.capture-body main div input {
+    height: 37px;
+}
+
+.website-link-input {
+    width: 70%;
+    border-radius: 7px;
+}
+
+.capture-btn {
+    width: 60%;
+    background-color: lightblue;
+    border-radius: 15px;
+}
+
+footer {
+    text-align: center;
+}
+
+footer span::before {
+    content: '........................................ ';
+    color:#38b6ff;
+    font-weight: bold;
+}
+
+footer span::after {
+    content: ' ........................................';
+    color:#38b6ff;
+    font-weight: bold;
+}
